@@ -328,6 +328,11 @@ AVAILABLE_MODULES = [
                 'description': 'Transmission Password',
                 },
                 {
+                    'key': 'transmission_webroot',
+                    'value': '',
+                    'description': 'Transmission Webroot (Optional)',
+                },
+                {
                 'key': 'transmission_show_empty',
                 'value': '1',
                 'description': 'Show module with no active torrents',
