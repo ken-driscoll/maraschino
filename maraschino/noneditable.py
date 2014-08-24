@@ -256,12 +256,23 @@ def plex_update_sections(id):
     # attempt to get sections from server
     dbserver = PlexServer.query.filter(PlexServer.id == id).first()
     try:
+        logger.log('Accessing Plex Media Server on address %s' %(dbserver.localAddresses), 'DEBUG')
         server = Server(dbserver.localAddresses, token=dbserver.token)
         sections = server.sections()
         if not sections:
             return (False, 'Failed to get sections')
     except:
-        return (False, 'Failed to retrieve server with id: %i' %id)
+        logger.log('Failed to access Plex Media Server locally, trying external address: %s' %(dbserver.host), 'DEBUG')
+        try:
+            server = Server(dbserver.host, token=dbserver.token)
+            sections = server.sections()
+            if not sections:
+                return (False, 'Failed to get sections')
+            else:
+                logger.log('Server connected successfully, marking server as external', 'DEBUG')
+                dbserver.localAddresses = dbserver.host
+        except:
+            return (False, 'Failed to retrieve server with id: %i' %id)
 
     # keeping old preferred sections
     try:
