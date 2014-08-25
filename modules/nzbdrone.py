@@ -43,6 +43,12 @@ def nzbdrone_url_no_api():
     return nzbdrone_http() + url_base
 
 
+def nzbdrone_app_link(ignore):
+    return nzbdrone_url_no_api()
+
+FILTERS['nzbdrone_app_link'] = nzbdrone_app_link
+
+
 def nzbdrone_api(params=None, use_json=True, dev=False, post=False, data=None):
     url = nzbdrone_url() + params
     if post:
@@ -183,4 +189,3 @@ def nzbdrone_add():
     params = 'Series'
     nzbdrone = nzbdrone_api(params, post=True, data=request.form, dev=True)
     return nzbdrone
-
