@@ -15,7 +15,7 @@ def nzbget_http():
 
 
 def nzbget_auth():
-    return 'nzbget:%s@' % (get_setting_value('nzbget_password'))
+    return '%s:%s@' % (get_setting_value('nzbget_username'), get_setting_value('nzbget_password'))
 
 
 def nzbget_url():

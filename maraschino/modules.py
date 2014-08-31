@@ -378,6 +378,11 @@ AVAILABLE_MODULES = [
                 'description': 'Port',
             },
             {
+                'key': 'nzbget_username',
+                'value': '',
+                'description': 'Username',
+            },
+            {
                 'key': 'nzbget_password',
                 'value': '',
                 'description': 'Password',
