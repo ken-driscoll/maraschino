@@ -14,12 +14,13 @@
     {% for episode in nzbdrone %}
       {%set date,time = episode.airDateUtc.split('T')%}
       <li data-imdbid="{{episode.series.imdbId}}" data-tvdbid="{{episode.series.tvdbId}}" data-tvrageid="{{episode.series.tvRageId}}" id="{{episode.id}}">
-        <img src="{{episode.series.images.0.url}}">
+        <img src="{{ episode.series.images.0 if episode.series.images.0 }}">
         <span>
           <p class="float-right">{{date}}@{{time.strip('Z')-}}</p>
           <p>{{- episode.series.title }} - S{{ "%02d" % episode.seasonNumber }}E{{ "%02d" % episode.episodeNumber }} - {{episode.title}}</p>
         </span>
       </li>
-    {% endfor %}  </ul>
+    {% endfor %}
+  </ul>
 </div>
 {% endblock %}
