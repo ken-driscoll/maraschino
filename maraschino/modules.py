@@ -293,6 +293,11 @@ AVAILABLE_MODULES = [
                 'description': 'Port',
             },
             {
+                'key': 'nzbget_username',
+                'value': '',
+                'description': 'Username',
+            },
+            {
                 'key': 'nzbget_password',
                 'value': '',
                 'description': 'Password',
@@ -374,6 +379,11 @@ AVAILABLE_MODULES = [
                 'key': 'transmission_password',
                 'value': '',
                 'description': 'Transmission Password',
+                },
+                {
+                    'key': 'transmission_webroot',
+                    'value': '',
+                    'description': 'Transmission Webroot (Optional)',
                 },
                 {
                 'key': 'transmission_show_empty',
