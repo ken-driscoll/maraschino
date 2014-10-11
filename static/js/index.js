@@ -1231,11 +1231,18 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '#search #results table tbody tr td:first-child img', function(){
-    var link = $(this).attr('nzb-link');
-    $.post(WEBROOT + '/sabnzbd/add/',{url: link}, function(data){
-      data = eval('(' + data + ')');
-      if(data['status']){
-        popup_message('Successfully added to SabNZBd');
+    var link = $(this).attr('nzb-sab-link');
+    var title = $(this).attr('nzb-name');
+    var cat = $(this).attr('nzb-category');
+    var url = '/sabnzbd/add/';
+    if(link == 'False'){
+      var link = $(this).attr('nzb-link');
+      var url = '/xhr/nzbget/queue/add/';
+    }
+    $.post(WEBROOT + url,{url: link, name: title, category: cat}, function(data){
+      //data = eval('(' + data + ')'); // need to check this for sabnzbd, not sure if still necessary
+      if(data['status'] || data['success']){
+        popup_message('Successfully added to queue');
       } else {
         popup_message(data['error']);
       }

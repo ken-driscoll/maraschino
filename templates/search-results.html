@@ -16,7 +16,14 @@
         <tbody>
           {% for item in results %}
             <tr>
-              <td class="icon"><img src="{{url_for('static', filename='images/applications/SabNZBd.png')}}" nzb-link="{{item.nzblink|add_to_sab}}" /></td>
+              <td class="icon">
+                <img  src="{{url_for('static', filename='images/applications/'+dl+'.png')}}" 
+                      nzb-sab-link="{{item.nzblink|add_to_sab}}" 
+                      nzb-link="{{item.nzblink}}" 
+                      nzb-name="{{item.title}}" 
+                      nzb-category="{{item.category}}" 
+                      title="Add to {{dl}}" />
+              </td>
               <td class="name"><a href="{{item.details}}">{{item.title}}</a></td>
               <td class="size">{{item.size}}</td>
               <td class="category">{{item.category}}</td>
