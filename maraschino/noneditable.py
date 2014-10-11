@@ -341,3 +341,27 @@ def savePreferredSection(type, id):
     except:
         return jsonify(success=False, msg='Failed to set preferred category')
 
+
+@app.route('/xhr/plex/ping/', methods=['POST'])
+def pingPlexServer():
+    # user = request.form['username']
+    # password = request.form['password']
+    address = request.form['address']
+    port = request.form['port']
+
+    try:
+        server = Server(ip=address, port=port)
+        # server.setUsername(user)
+        # server.setPassword(password)
+        info = server.generic('')
+        name = info['friendlyName']
+        version = info['version']
+        machineIdentifier = info['machineIdentifier']
+        platform = info['platform']
+        addServer(name, address, port, "http", address, address, machineIdentifier, "", "", "", version, 1, "")
+        return jsonify(success=True, name=name, version=version, platform=platform, servers=listServers())
+    except Exception, e:
+        logger.log("Plex :: failed to query manual server: %s" % e, "ERROR")
+
+    return jsonify(success=False)
+

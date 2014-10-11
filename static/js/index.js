@@ -263,13 +263,41 @@ $(document).ready(function() {
             $('#server_settings .submenu ul').append('<li class="switch_server" data-server_id="'+data.servers[i][1]+'">'+data.servers[i][0]+'</li>');
           }
           $('#tutorial .inner p').remove();
-          $('#tutorial .inner h1').text('Plese select your local Plex server:');
+          $('#tutorial .inner h1').text('Plese select your Plex server:');
         } else {
           $('img.loading').replaceWith('<ul>'+list+'</ul>');
           popup_message(data.msg);
         }
       }
     );
+  });
+
+  $(document).on('click', '#tutorial #manual', function(event) {
+    event.preventDefault();
+    //$('#tutorial .inner').hide();
+    $('#tutorial .manual-server').toggle();
+  });
+
+  $(document).on('click', '#tutorial #manual-save', function(event) {
+    event.preventDefault();
+    var t = $(this);
+    add_loading_gif(t);
+    // var user = $('#tutorial .manual-server #username').val();
+    // var password = $('#tutorial .manual-server #password').val();
+    var address = $('#tutorial .manual-server #ip').val();
+    var port = $('#tutorial .manual-server #port').val();
+
+    $.post(WEBROOT + '/xhr/plex/ping/', {address: address, port: port}, function(data) {
+      remove_loading_gif(t);
+      if(data.success){
+        popup_message('Found server "'+ data.name +'", version '+ data.version+' running on '+data.platform);
+        for (var i = 0; i < data.servers.length; i++) {
+          $('#server_settings .submenu ul').append('<li class="switch_server" data-server_id="'+data.servers[i][1]+'">'+data.servers[i][0]+'</li>');
+        }
+      } else {
+        popup_message('No server found at given address');
+      }
+    });
   });
 
   $(document).on('click', '#tutorial ul.servers li', function(){
