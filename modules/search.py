@@ -44,14 +44,20 @@ def get_newznab_sites():
 @app.route('/xhr/search/')
 @app.route('/xhr/search/<site>')
 @requires_auth
-def xhr_search(site=1):
+def xhr_search(site=0):
     if get_setting_value('search') == '0':
         logger.log('SEARCH :: Search fature not enabled, please enable it on the top right corner menu', 'INFO')
         return ''
 
-    site = int(site)
-    newznab = NewznabSite.query.filter(NewznabSite.id == site).first()
-    categories = cat_newznab(newznab.url)
+    try:
+        site = int(site)
+        if site == 0:
+            newznab = NewznabSite.query.order_by(NewznabSite.id).first()
+        else:
+            newznab = NewznabSite.query.filter(NewznabSite.id == site).first()
+        categories = cat_newznab(newznab.url)
+    except Exception, e:
+        logger.log('SEARCH :: Exception %s' % e, 'ERROR')
 
     return render_template('search.html',
         site=site,
