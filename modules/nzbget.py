@@ -70,14 +70,23 @@ def queue_action_nzbget(action):
 @requires_auth
 def queue_add_nzbget():
     status = False
-    if len(nzb):
-        try:
-            nzbget = jsonrpc.ServerProxy('%s/jsonrpc' % nzbget_url())
-            nzb = request.form['url']
-            nzb = urllib.urlopen(nzb).read()
-            status = nzbget.append('test', '', False, base64.encode(nzb))
-        except Exception as e:
-            nzbget_exception(e)
+    try:
+        nzb = request.form['url']
+        name = request.form['name']
+        category = request.form['category']
+        nzbget = jsonrpc.ServerProxy('%s/jsonrpc' % nzbget_url())
+        nzb = urllib.urlopen(nzb).read()
+        status = nzbget.append(name, #filename
+            base64.b64encode(nzb), #nzb
+            category, # category
+            0, #priority (0 = default)
+            False, # add to top
+            False, # add paused
+            name, # dupe key
+            100000, # dupe score
+            'Force') # dupe mode
+    except Exception as e:
+        nzbget_exception(e)
 
     return jsonify({'success': status})
 

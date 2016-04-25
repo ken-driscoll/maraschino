@@ -127,6 +127,10 @@ def newznab(site, category, maxage, term, mobile=False):
     if mobile:
         return results
 
+    dl = 'SabNZBd'
+    if get_setting_value('nzbget_host'):
+        dl = 'NZBGet'
+
     return render_template('search-results.html',
         site=site,
         results=results,
@@ -134,7 +138,8 @@ def newznab(site, category, maxage, term, mobile=False):
         categories=categories,
         category=category,
         maxage=int(maxage),
-        newznab_sites=get_newznab_sites()
+        newznab_sites=get_newznab_sites(),
+        dl=dl
     )
 
 
