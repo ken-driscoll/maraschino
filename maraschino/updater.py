@@ -8,8 +8,8 @@ import urllib2, tarfile, os, shutil, platform, subprocess, re
 from flask import json
 
 # define master repo as user and branch in github repo
-user = 'gugahoi'
-branch = 'master'
+user = 'ken-driscoll'
+branch = 'nzbdrone'
 
 def joinRundir(path):
     """Join rundir with 'path'"""
