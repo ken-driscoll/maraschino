@@ -1,7 +1,7 @@
-#Maraschino [![Support via Gittip](http://b.repl.ca/v1/gittip-support-brightgreen.png)](https://www.gittip.com/gugahoi) [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GCWQGNUWR2WGY)
+#Maraschino [![Support via Gittip](http://b.repl.ca/v1/gittip-support-brightgreen.png)](https://www.gittip.com/ken-driscoll) 
 
-* **Maintainer**: [Gustavo Hoirisch](https://github.com/gugahoi)
-
+* **Maintainer**: [Ken Driscoll](https://github.com/ken-driscoll)
+* *Based on the work of*: [Gustavo Hoirisch](https://github.com/gugahoi)
 
 
 ##What is Maraschino?
@@ -35,7 +35,7 @@ You can find more information on the original version of Maraschiono for XBMC an
 
 * **Sickbeard module** which allows you to browse upcoming episodes and manage Sickbeard directly from Maraschino (add new shows, search for episodes, etc.).
 
-* **NZBDrone module** which allows you to browse upcoming episodes and manage NZBDrone directly from Maraschino (in development).
+* **Sonarr module** which allows you to browse upcoming episodes and manage NZBDrone directly from Maraschino.
 
 * **CouchPotato module** which allows you to browse upcoming movies and manage CouchPotato directly from Maraschino (add new movies, etc.).
 
