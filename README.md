@@ -1,7 +1,7 @@
 #Maraschino [![Support via Gittip](http://b.repl.ca/v1/gittip-support-brightgreen.png)](https://www.gittip.com/ken-driscoll) 
 
 * **Maintainer**: [Ken Driscoll](https://github.com/ken-driscoll)
-* *Forked from*: [Gustavo Hoirisch](https://github.com/gugahoi)
+* *Forked from*: [Bradley Abrahams](https://github.com/mrkipling) and [Gustavo Hoirisch](https://github.com/gugahoi)
 
 
 ##What is Maraschino?
@@ -55,7 +55,7 @@ Uses Flask and some other awesome technologies (SQL-Alchemy, LESS CSS) but you d
 
 ##What license is it released under?
 
-It is released under the MIT License, [which can be found here](https://github.com/gugahoi/maraschino/blob/master/LICENSE).
+It is released under the MIT License, [which can be found here](https://github.com/ken-driscoll/maraschino/blob/master/LICENSE).
 
 ##Why is it called Maraschino?
 
@@ -63,6 +63,6 @@ If your HTPC is an ice cream sundae then Maraschino is the cherry on top.
 
 ##Thanks
 
-Special thanks to Bradley Abrahams(https://github.com/mrkipling) and David Gray(https://github.com/N3MIS15) for coding this with me on the XBMC version for the longest time.
+Special thanks to [Bradley Abrahams](https://github.com/mrkipling), [David Gray](https://github.com/N3MIS15) and [Gustavo Hoirisch](https://github.com/gugahoi) for doing the hard part so I can make these updates!
 
 <img src="http://www.maraschinoproject.com/static/images/maraschino_logo.png" width="71" height="79">
