@@ -1,7 +1,7 @@
 #Maraschino [![Support via Gittip](http://b.repl.ca/v1/gittip-support-brightgreen.png)](https://www.gittip.com/ken-driscoll) 
 
 * **Maintainer**: [Ken Driscoll](https://github.com/ken-driscoll)
-* *Based on the work of*: [Gustavo Hoirisch](https://github.com/gugahoi)
+* *Forked from*: [Gustavo Hoirisch](https://github.com/gugahoi)
 
 
 ##What is Maraschino?
